@@ -11,18 +11,22 @@ namespace Quiron.LojaVirtual.Web.Controllers
     {
         //Isntanceando o repositorio responsável pelos produtos
         private ProdutoRepositorio _repositorio;
-
+        public int produtosPorPagina = 3;
 
         // GET: Vitrine
-        public ActionResult Index()
+        public ActionResult ListaProdutos(int pagina = 1)
         {
-           
-            _repositorio = new ProdutoRepositorio();
-            //Retornando uma coleção de produtos
-            var produtos = _repositorio.Produtos;
-            
 
-            return View();
+            _repositorio = new ProdutoRepositorio();
+            //Retornando uma coleção de produtos e ordenando por nome
+            var produtos = _repositorio.Produtos.
+                OrderBy(p => p.Nome)
+                //Executando a paginação
+                .Skip((pagina - 1) * produtosPorPagina)
+                .Take(produtosPorPagina);
+
+
+            return View(produtos);
         }
     }
 }
