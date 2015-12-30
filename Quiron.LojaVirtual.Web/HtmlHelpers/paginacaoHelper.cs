@@ -23,7 +23,7 @@ namespace Quiron.LojaVirtual.Web.HtmlHelpers
             StringBuilder resultado = new StringBuilder();
 
             //2º Passo construção da estrutura de repetição for que executará o bloco de código enquanto i for menor que o total de páginas
-            for (int i = 1; i < paginacao.TotalPaginas; i++)
+            for (int i = 1; i <= paginacao.TotalPaginas; i++)
             {
                 /* 3º Passo: Instanciando a Classe TagsBuilder e passando 
                       Como parâmetro a tag <a/>

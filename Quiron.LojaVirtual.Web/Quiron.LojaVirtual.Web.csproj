@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\paginacaoHelper.cs" />
     <Compile Include="Models\Paginacao.cs" />
+    <Compile Include="Models\ProdutoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
